@@ -31,9 +31,9 @@ A Redux/React app that takes a source text and enables, helps, prods the user to
 
 ```
 > npm install
-> npm build // or `npm watch`
+> npm run build // or `npm run watch`
 > npm start
-Server running on localhost:1001
+Server running got to http://localhost:10001
 ```
 
 ## Application state
