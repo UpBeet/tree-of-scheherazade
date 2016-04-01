@@ -12,16 +12,18 @@ Polish to English by Celina Wieniewska >>
 
 > Only a few people noticed the lack of color, as in black-and-white photographs. This was real rather than mataphorical&mdash; colorless sky, an enormous geometry of emptiness, a watery anonymous gray which did not throw shadows and did not stress anything, a screen placed to hide the true meaning of things, a facae behind which there was an overintense coloring, exhausted by passitivity.
 
+*Tree of Codes* by Jonathan Safran Foer
+
 Within the tradition of story within Foer takes this one step further by literally constructing a new story by cutting out words from another. While it could be debated whether the result is a work of prose, poetry, or even sculpture, it could also be thought of as one of computation, a special functor designed for a text that itself was created as an act of translation.
 
-A bit abstractly we can think of this process as:
+A bit naively we can think of this process in functional code as the composition of a map (translation) and a filter (cutting):
 ```
-polToEngWieniewska = map(text)
-treeOfCodes = filter(cutIndices)
-result = compose(treeOfCodes, polToEngWieniewska)(theStreetOfCrocodilesText)
+polish_to_english_wieniewska = map(text)
+tree_of_codes = filter(cut_indices)
+result = compose(tree_of_codes, polish_to_english_wieniewska)(the_street_of_crocodiles)
 ```
 
-We are creating a web tool that would allow authors to easily craft their own `treeOfCodes` function and visualize it in a similar, but digital form.
+We are creating a web tool that would allow authors to easily craft their own `tree_of_codes` function and visualize it in a similar, but digital form.
 
 ## The application
 
