@@ -14,7 +14,7 @@ Polish to English by Celina Wieniewska >>
 
 *Tree of Codes* by Jonathan Safran Foer
 
-Within the tradition of story within Foer takes this one step further by literally constructing a new story by cutting out words from another. While it could be debated whether the result is a work of prose, poetry, or even sculpture, it could also be thought of as one of computation, a special functor designed for a text that itself was created as an act of translation.
+Within the tradition of story within a story, Foer takes this one step further by literally constructing a new story by cutting out words from another. While it could be debated whether the result is a work of prose, poetry, or even sculpture, it could also be thought of as one of computation, a special functor designed for a text that itself was created as an act of translation.
 
 A bit naively we can think of this process in functional code as the composition of a map (translation) and a filter (cutting):
 ```
