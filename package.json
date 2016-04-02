@@ -1,0 +1,19 @@
+{
+  "name": "tree-of-scheherazade",
+  "version": "1.0.0",
+  "description": "Cut a story within a story computationally, a la Tree of Codes and One Thousand and One Nights",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UpBeet/tree-of-scheherazade.git"
+  },
+  "author": "petroochio dropofwill",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/UpBeet/tree-of-scheherazade/issues"
+  },
+  "homepage": "https://github.com/UpBeet/tree-of-scheherazade#readme"
+}
