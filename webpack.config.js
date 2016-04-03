@@ -5,12 +5,13 @@ var extractCSS = new ExtractTextPlugin('css/main.css');
 
 module.exports = {
   entry: {
-    client: './src/client/app.js',
+    client: './index',
   },
 
   output: {
     path: path.resolve('build'),
     filename: 'js/[name].js',
+    publicPath: '/static/',
   },
 
   module: {
@@ -22,10 +23,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        include: [
-          path.resolve(__dirname, 'src/client'),
-        ],
-        exclude: /node_modules/,
+        exclude: /(node_modules|build)/,
         loader: 'babel-loader',
       },
     ],

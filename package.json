@@ -4,7 +4,7 @@
   "description": "Cut a story within a story computationally, a la Tree of Codes and One Thousand and One Nights",
   "main": "index.js",
   "scripts": {
-    "start": "node ./index.js",
+    "start": "node ./server.js",
     "build": "webpack --progress --colors",
     "watch": "webpack --progress --colors --watch",
     "postinstall": "npm run build",
@@ -28,6 +28,8 @@
     "path": "^0.12.7",
     "ramda": "^0.19.1",
     "react": "^0.14.8",
+    "react-router": "^2.0.1",
+    "redux": "^3.3.1",
     "sass-loader": "^3.2.0",
     "webpack": "^1.12.14"
   },
