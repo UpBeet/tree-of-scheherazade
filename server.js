@@ -1,11 +1,13 @@
-var webpack = require('webpack');
-var webpackDevMiddleware = require('webpack-dev-middleware');
-var config = require('./webpack.config');
+// var webpack = require('webpack');
+// var webpackDevMiddleware = require('webpack-dev-middleware');
+// var config = require('./webpack.config');
 
-var app = new (require('express'))();
+var express = require('express');
+var path = require('path');
+var app = new express();
 var PORT = 3000;
 
-var compiler = webpack(config);
+// var compiler = webpack(config);
 // app.use(webpackDevMiddleware(compiler,
 // { noInfo: true, publicPath: config.output.publicPath }));
 
