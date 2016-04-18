@@ -1,4 +1,4 @@
-export default '''
+export default `
 Book the First--Recalled to Life
 
 
@@ -15794,4 +15794,4 @@ tell the child my story, with a tender and a faltering voice.
 
 "It is a far, far better thing that I do, than I have ever done; it is a
 far, far better rest that I go to than I have ever known."
-'''
+`;

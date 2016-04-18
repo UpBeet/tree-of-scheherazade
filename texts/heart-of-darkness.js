@@ -1,4 +1,4 @@
-export default '''
+export default `
 I
 
 
@@ -3304,4 +3304,4 @@ the ebb," said the Director suddenly. I raised my head. The offing was
 barred by a black bank of clouds, and the tranquil waterway leading to
 the uttermost ends of the earth flowed sombre under an overcast
 sky--seemed to lead into the heart of an immense darkness.
-'''
+`;
