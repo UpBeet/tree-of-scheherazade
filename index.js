@@ -5,8 +5,11 @@ import { Provider } from 'react-redux';
 import Editor from './containers/Editor';
 import reducers from './reducers';
 
-import dubliners from './texts/dubliners.js';
-console.log(dubliners.length);
+import dubliners from './texts/dubliners';
+import parser from './parser/parser';
+
+console.log('this works')
+console.log(parser.tokenize(dubliners));
 
 const store = createStore(reducers);
 
