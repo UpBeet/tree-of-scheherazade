@@ -9,7 +9,7 @@ import { Word } from '../components';
 
 const defaultProps = {
   words: ['peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter'],
-  filter: [false, false, false, false, false, false, false, false, false, false, false, false, false],
+  filter: [true, false, true, true, false, false, false, true, false, false, false, false, false],
 };
 
 
