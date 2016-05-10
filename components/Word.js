@@ -5,10 +5,10 @@ const propTypes = {
   content: PropTypes.string.isRequired,
 };
 
-const Word = ({ selected, content }) =>
-  <span
-  className={`word ${selected ? 'selected' : 'unselected'}`}
-  >{content}</span>;
+const Word = ({ selected, content }) => (
+  <span className={`word ${selected ? 'selected' : 'unselected'}`}>
+    {content}
+  </span>);
 
 
 Word.propTypes = propTypes;
