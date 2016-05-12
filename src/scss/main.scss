@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Mono:400,400italic,700,700italic&subset=latin,greek,cyrillic,greek-ext,cyrillic-ext,vietnamese,latin-ext);
+
 @mixin transition($transition...) {
     -moz-transition:    $transition;
     -o-transition:      $transition;
@@ -5,13 +7,25 @@
     transition:         $transition;
 }
 
+body {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 400;
+  max-width: 40em;
+  margin: 0 auto;
+  width: 100%;
+  padding: 1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
 // Vars
-$spacing: 0.1%;
+$spacing: 1em;
 
 .word {
   max-width: 10%;
   background-color: white;
-  padding-left: $spacing;
   padding-right: $spacing;
 
   @include transition(
