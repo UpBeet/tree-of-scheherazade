@@ -7,7 +7,7 @@ const forEachIndex = addIndex(forEach);
  * Remove trailing newlines
  */
 export const normalize = (rawText) =>
-  rawText.replace(/(.)(\r\n|\n|\r)/gm, '$1');
+  rawText.replace(/(.)(\r\n|\n|\r)/gm, '$1 ');
 
 /**
  * Keep words and punctuation separate
