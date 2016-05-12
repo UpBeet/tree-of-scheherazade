@@ -1,5 +1,6 @@
 {
   "extends": "airbnb/base",
+  "parser": "babel-eslint", 
   "plugins": [ "react" ],
   "rules": {
     "brace-style": [2, "stroustrup", { "allowSingleLine": true }],

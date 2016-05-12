@@ -1,36 +1,49 @@
 // External
-import React from 'react';
+import React, { PropTypes } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 // Internal
 import Editor from './Editor';
 import TextViewer from './TextViewer';
 import { Word } from '../components';
-import { buildTrie, tokenizer } from '../parser/parser';
-
-import dubliners from '../texts/dubliners';
-
-const trie = buildTrie(tokenizer(dubliners));
-
-const tempAltFilter = [true, false, true, true, false, false, false, true, false, false, false, false, false];
-const tempWords = ['peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter'];
-const tempFilter = [true, true, true, true, true, true, true, true, true, true, true, true, true];
+import * as actions from '../actions';
 
 const App = React.createClass({
-  getInitialState: () =>
-    ({
-      words: tempWords,
-      filter: tempFilter,
-    }),
 
   render() {
+    const { editor, actions } = this.props;
+
     return (
       <div>
-        <Editor />
+        <Editor
+          trie={editor.sourceTrie}
+          cursor={editor.cursor}
+        />
         <TextViewer
-          words={this.state.words}
-          filter={this.state.filter} />
+          source={editor.source}
+          filter={editor.filter}
+          highlighted={editor.highlighted}
+          cursor={editor.cursor}
+        />
       </div>);
   },
 });
 
-export default App;
+App.propTypes = {
+  editor: PropTypes.object.isRequired,
+  actions: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  editor: state.editor,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  actions: bindActionCreators(actions, dispatch),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
