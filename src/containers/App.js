@@ -1,25 +1,35 @@
 // External
 import React from 'react';
-import R from 'ramda';
 
 // Internal
-import { Word } from '../components';
+import Editor from './Editor';
+import TextViewer from './TextViewer';
 
-// Dummy data
+const tempAltFilter = [true, false, true, true, false, false, false, true, false, false, false, false, false];
+const tempWords = ['peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter'];
+const tempFilter = [true, true, true, true, true, true, true, true, true, true, true, true, true];
 
-const defaultProps = {
-  words: ['peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter'],
-  filter: [true, false, true, true, false, false, false, true, false, false, false, false, false],
-};
+const App = React.createClass({
+  clickMe: function () {
+    const that = this;
+    this.setState({ filter: tempAltFilter }, () => console.log(that.state));
+  },
+
+  getInitialState: () =>
+    ({
+      words: tempWords,
+      filter: tempFilter,
+    }),
+
+  render: function () {
+    return (<div className="peter" onClick={this.clickMe}>
+      <Editor />
+      <TextViewer
+        words={this.state.words}
+        filter={this.state.filter} />
+    </div>);
+  },
+});
 
 
-const App = ({ words, filter }) =>
-  (<div>
-    {
-      R.zip(words, filter)
-      .map((item, i) => <Word content={item[0]} selected={item[1]} key={i}/>)
-    }
-  </div>);
-
-App.defaultProps = defaultProps;
 export default App;
