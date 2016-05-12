@@ -1,0 +1,16 @@
+@mixin transition($transition...) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
+
+.word {
+  display: inline-block;
+  max-width: 10%;
+  @include transition(opacity 1s, max-width 1s);
+  &.unselected {
+    opacity: 0;
+    max-width: 0%;
+  }
+}
