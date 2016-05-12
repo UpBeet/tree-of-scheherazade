@@ -24,7 +24,8 @@ h1, h2, h3, h4, h5, h6 {
 $spacing: 1em;
 
 .word {
-  max-width: 10%;
+  display: inline-block;
+  max-width: 50%;
   background-color: white;
   padding-right: $spacing;
 

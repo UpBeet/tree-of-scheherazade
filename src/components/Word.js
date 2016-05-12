@@ -5,10 +5,15 @@ const getClass = (highlight, selected) =>
 
 const isNewline = string => string === '\n';
 
+const newLineStyles = content => ({
+  display: 'block',
+  marginBottom: '1em',
+});
+
 const Word = ({ highlight, selected, content }) =>
   (<span
     className={getClass(highlight, selected)}
-    style={{ display: isNewline(content) ? 'block' : 'inline-block' }}>
+    style={isNewline(content) ? newLineStyles(content) : {}}>
         {content}
       </span>);
 
