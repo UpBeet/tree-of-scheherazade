@@ -4,6 +4,12 @@ import React from 'react';
 // Internal
 import Editor from './Editor';
 import TextViewer from './TextViewer';
+import { Word } from '../components';
+import { buildTrie, tokenizer } from '../parser/parser';
+
+import dubliners from '../texts/dubliners';
+
+const trie = buildTrie(tokenizer(dubliners));
 
 const tempAltFilter = [true, false, true, true, false, false, false, true, false, false, false, false, false];
 const tempWords = ['peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter', 'peter'];
@@ -26,6 +32,5 @@ const App = React.createClass({
       </div>);
   },
 });
-
 
 export default App;
