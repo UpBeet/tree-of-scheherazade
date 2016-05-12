@@ -4,7 +4,7 @@ import { handleActions } from 'redux-actions';
 import { buildTrie, tokenizer } from '../parser/parser';
 import dubliners from '../texts/dubliners';
 
-const source = take(500, tokenizer(dubliners));
+const source = take(2000, tokenizer(dubliners));
 const filter = repeat(true, source.length);
 const sourceTrie = buildTrie(source);
 

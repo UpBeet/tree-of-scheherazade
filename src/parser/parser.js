@@ -4,10 +4,16 @@ import { forEach, addIndex, toLower } from 'ramda';
 const forEachIndex = addIndex(forEach);
 
 /**
+ * Remove trailing newlines
+ */
+export const normalize = (rawText) =>
+  rawText.replace(/.(\r\n|\n|\r)/gm, '');
+
+/**
  * Keep words and punctuation separate
  */
 export const tokenizer = (rawText) =>
-  rawText.match(
+  normalize(rawText).match(
     /([A-Za-zА-Яа-я0-9_\$%#@]+|[,\?\.'";&\(\)!\-\+=\n\r])/g);
 
 export const buildTrie = (tokenizedText) => {
