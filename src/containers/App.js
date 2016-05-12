@@ -6,8 +6,7 @@ import { connect } from 'react-redux';
 // Internal
 import Editor from './Editor';
 import TextViewer from './TextViewer';
-import { Word } from '../components';
-import * as actions from '../actions';
+import * as Actions from '../actions';
 
 const App = React.createClass({
 
@@ -16,6 +15,7 @@ const App = React.createClass({
 
     return (
       <div>
+        <h1>Tree of Sheherazade</h1>
         <Editor
           trie={editor.sourceTrie}
           cursor={editor.cursor}
@@ -40,7 +40,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators(actions, dispatch),
+  actions: bindActionCreators(Actions, dispatch),
 });
 
 export default connect(

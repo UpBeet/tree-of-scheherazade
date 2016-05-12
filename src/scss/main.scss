@@ -7,6 +7,10 @@
     transition:         $transition;
 }
 
+* { 
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Roboto Mono', monospace;
   font-weight: 400;
@@ -46,4 +50,9 @@ $spacing: 1em;
   &.highlight {
     background-color: purple;
   }
+}
+
+.autocompleter {
+  width: 15em;
+  margin-left: -18em;
 }

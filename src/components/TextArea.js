@@ -11,9 +11,11 @@ class TextArea extends Component {
 
   render() {
     return (
-      <textarea
+      <input
         onChange={this._onChange}
         value={this.state.text}
+        type='text'
+        className='autocompleter'
       />
     );
   }
