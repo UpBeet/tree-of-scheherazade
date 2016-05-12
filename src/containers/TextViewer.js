@@ -1,17 +1,28 @@
 // External
-import React from 'react';
+import React, { PropTypes } from 'react';
 import R from 'ramda';
 
 // Internal
 import { Word } from '../components';
 
 // Dummy data
-const TextViewer = ({ words, filter }) =>
+const TextViewer = ({ source, filter, highlighted }) =>
   (<div>
     {
-      R.zip(words, filter)
-      .map((item, i) => <Word content={item[0]} selected={item[1]} key={i}/>)
+      R.zip(source, filter)
+      .map((item, i) =>
+        <Word
+          highlight={R.contains(i, highlighted)}
+          content={item[0]}
+          selected={item[1]}
+          key={i}/>)
     }
   </div>);
+
+TextViewer.propTypes = {
+  source: PropTypes.arrayOf(PropTypes.string).isRequired,
+  filter: PropTypes.arrayOf(PropTypes.bool).isRequired,
+  highlighted: PropTypes.arrayOf(PropTypes.number).isRequired,
+};
 
 export default TextViewer;

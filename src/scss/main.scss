@@ -5,20 +5,31 @@
     transition:         $transition;
 }
 
+// Vars
 $spacing: 0.1%;
 
 .word {
   display: inline-block;
   max-width: 10%;
-  background-color: red;
+  background-color: white;
   padding-left: $spacing;
   padding-right: $spacing;
 
-  @include transition(opacity 1s, max-width 1s, padding-left 1s, padding-right 1s);
+  @include transition(
+    opacity 1s,
+    max-width 1s,
+    padding-left 1s,
+    padding-right 1s,
+    background-color 1s);
+
   &.unselected {
     opacity: 0;
     max-width: 0%;
     padding-left: 0%;
     padding-right: 0%;
+  }
+
+  &.highlight {
+    background-color: purple;
   }
 }

@@ -1,14 +1,17 @@
 import React, { PropTypes } from 'react';
 
-const propTypes = {
-  selected: PropTypes.bool.isRequired,
-  content: PropTypes.string.isRequired,
-};
+const getClass = (highlight, selected) =>
+  `word ${selected ? '' : 'unselected'} ${highlight ? 'highlight' : ''}`;
 
-const Word = ({ selected, content }) =>
-  (<span className={`word ${selected ? 'selected' : 'unselected'}`}>
+const Word = ({ highlight, selected, content }) =>
+  (<span className={getClass(highlight, selected)}>
         {content}
       </span>);
 
-Word.propTypes = propTypes;
+Word.propTypes = {
+  selected: PropTypes.bool.isRequired,
+  content: PropTypes.string.isRequired,
+  highlight: PropTypes.bool.isRequired,
+};
+
 export default Word;
