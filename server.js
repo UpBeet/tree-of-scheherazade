@@ -8,7 +8,7 @@ app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html');
 });
 
-app.use('**/cs', express.static(path.resolve(__dirname + '/build/css')));
+app.use('**/css', express.static(path.resolve(__dirname + '/build/css')));
 app.use('**/js', express.static(path.resolve(__dirname + '/build/js')));
 
 app.listen(PORT, function(error) {

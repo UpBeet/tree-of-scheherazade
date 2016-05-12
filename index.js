@@ -14,6 +14,7 @@ const tokens = tokenizer(dubliners);
 const store = createStore(reducers);
 
 const rootElement = document.getElementById('root');
+require('./src/scss/main.scss');
 
 render(
   <Provider store={store}>
