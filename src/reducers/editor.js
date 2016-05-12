@@ -1,4 +1,4 @@
-import { repeat, take } from 'ramda';
+import { repeat, take, splitAt, map } from 'ramda';
 import { handleActions } from 'redux-actions';
 
 import { buildTrie, tokenizer } from '../parser/parser';
@@ -16,8 +16,16 @@ const initialState = {
   cursor: 0,
 };
 
+const selectFromSource = (index, state) => {
+  const [head, tail] = splitAt(index - 1, state.filter);
+  const [unchanged, alter] = splitAt(state.cursor, head);
+  const deselected = map(() => false, alter);
+  return unchanged.concat(deselected).concat(tail);
+};
+
 export const editor = handleActions({
   SELECT_WORD: (state, action) => ({
+    source: selectFromSource(action.index, state),
     ...state,
   }),
 
