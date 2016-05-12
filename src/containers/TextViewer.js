@@ -7,7 +7,7 @@ import { Word } from '../components';
 
 // Dummy data
 const TextViewer = ({ source, filter, highlighted }) =>
-  (<div>
+  (<div className='words'>
     {
       R.zip(source, filter)
       .map((item, i) =>

@@ -2,7 +2,9 @@ import React from 'react';
 import TextArea from '../components/TextArea';
 
 export default () => (
-  <div>
+  <div
+    className='autocompleter'
+  >
     <TextArea />
   </div>
 );

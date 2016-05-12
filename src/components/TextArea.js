@@ -15,7 +15,6 @@ class TextArea extends Component {
         onChange={this._onChange}
         value={this.state.text}
         type='text'
-        className='autocompleter'
       />
     );
   }

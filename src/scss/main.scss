@@ -14,10 +14,15 @@
 body {
   font-family: 'Roboto Mono', monospace;
   font-weight: 400;
+  padding: 1em;
+  font-size: 16px;
+}
+
+.container {
+  position: relative;
   max-width: 40em;
   margin: 0 auto;
   width: 100%;
-  padding: 1em;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -26,6 +31,10 @@ h1, h2, h3, h4, h5, h6 {
 
 // Vars
 $spacing: 1em;
+
+.words {
+  line-height: 1.7;
+}
 
 .word {
   display: inline-block;
@@ -53,6 +62,13 @@ $spacing: 1em;
 }
 
 .autocompleter {
-  width: 15em;
-  margin-left: -18em;
+  position: absolute;
+  width: 12em;
+  left: -13em;
+
+  input {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 16px;
+    width: 100%;
+  }
 }

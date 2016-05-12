@@ -14,7 +14,9 @@ const App = React.createClass({
     const { editor, actions } = this.props;
 
     return (
-      <div>
+      <div
+        className='container'
+      >
         <h1>Tree of Sheherazade</h1>
         <Editor
           trie={editor.sourceTrie}
