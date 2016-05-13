@@ -31,6 +31,7 @@ h1, h2, h3, h4, h5, h6 {
 
 // Vars
 $spacing: 1em;
+$datPurp: #CD94E0;
 
 .words {
   line-height: 1.7;
@@ -57,7 +58,11 @@ $spacing: 1em;
   }
 
   &.highlight {
-    background-color: #CD94E0;
+    background-color: $datPurp;
+  }
+
+  &.is-cursor {
+    border-bottom: 1px dashed $datPurp;
   }
 }
 

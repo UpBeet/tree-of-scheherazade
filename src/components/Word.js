@@ -1,18 +1,19 @@
 import React, { PropTypes } from 'react';
 
-const getClass = (highlight, selected) =>
-  `word ${selected ? '' : 'unselected'} ${highlight ? 'highlight' : ''}`;
+const getClass = (highlight, selected, isCursor) =>
+  `word ${selected ? '' : 'unselected'}
+  ${highlight ? 'highlight' : ''} ${isCursor ? 'is-cursor' : ''}`;
 
 const isNewline = string => string === '\n';
 
-const newLineStyles = content => ({
+const newLineStyles = () => ({
   display: 'block',
   marginBottom: '1em',
 });
 
-const Word = ({ highlight, selected, content }) =>
+const Word = ({ isCursor, highlight, selected, content }) =>
   (<span
-    className={getClass(highlight, selected)}
+    className={getClass(highlight, selected, isCursor)}
     style={isNewline(content) ? newLineStyles(content) : {}}>
         {content}
       </span>);

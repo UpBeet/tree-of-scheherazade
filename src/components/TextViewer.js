@@ -6,7 +6,7 @@ import R from 'ramda';
 import { Word } from '../components';
 
 // Dummy data
-const TextViewer = ({ source, filter, suggestions }) =>
+const TextViewer = ({ source, filter, suggestions, cursor }) =>
   (<div className="words">
     {
       R.zip(source, filter)
@@ -15,6 +15,7 @@ const TextViewer = ({ source, filter, suggestions }) =>
           highlight={(R.filter(R.propEq('i', i), suggestions).length > 0)}
           content={item[0]}
           selected={item[1]}
+          isCursor={(i === cursor)}
           key={i}/>)
     }
   </div>);
