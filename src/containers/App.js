@@ -17,7 +17,7 @@ const App = React.createClass({
       <div
         className="container"
       >
-        <h1>Tree of Sheherazade</h1>
+        <h1>Tree of Scheherazade</h1>
         <Editor
           trie={editor.sourceTrie}
           cursor={editor.cursor}
