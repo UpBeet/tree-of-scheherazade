@@ -28,6 +28,7 @@ const selectFromFilter = (index, state) => {
 export const editor = handleActions({
   SELECT_WORD: (state, action) => {
     const [cursor, newFilter] = selectFromFilter(action.index, state);
+    console.log(cursor, newFilter)
     return {
       ...state,
       filter: newFilter,

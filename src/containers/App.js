@@ -23,6 +23,7 @@ const App = React.createClass({
           cursor={editor.cursor}
           suggestions={editor.suggestions}
           suggestWords={actions.suggestWords}
+          selectWord={actions.selectWord}
         />
         <TextViewer
           source={editor.source}

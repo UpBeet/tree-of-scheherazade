@@ -24,6 +24,8 @@ class TextArea extends Component {
     this.onChange = this.onChange.bind(this);
     this.onSuggestionsUpdateRequested =
       this.onSuggestionsUpdateRequested.bind(this);
+    this.onSuggestionSelected =
+      this.onSuggestionSelected.bind(this);
   }
 
   onChange(event, { newValue }) {
@@ -32,6 +34,12 @@ class TextArea extends Component {
 
   onSuggestionsUpdateRequested({ value }) {
     this.props.suggestWords(value);
+  }
+
+  onSuggestionSelected(event, { suggestion }) {
+    console.log('chrome being butt', suggestion);
+    this.props.selectWord(suggestion.i);
+    this.setState({ value: '' });
   }
 
   render() {
@@ -50,6 +58,7 @@ class TextArea extends Component {
         <Autosuggest
           suggestions={suggestions}
           onSuggestionsUpdateRequested={this.onSuggestionsUpdateRequested}
+          onSuggestionSelected={this.onSuggestionSelected}
           getSuggestionValue={getSuggestionValue}
           renderSuggestion={renderSuggestion}
           shouldRenderSuggestions={shouldRenderSuggestions}
