@@ -18,7 +18,7 @@ const initialState = {
 };
 
 const selectFromFilter = (index, state) => {
-  const [head, tail] = splitAt(index - 1, state.filter);
+  const [head, tail] = splitAt(index, state.filter);
   const [unchanged, alter] = splitAt(state.cursor, head);
 
   const alteredHead = unchanged.concat(repeat(false, alter.length));
@@ -27,8 +27,8 @@ const selectFromFilter = (index, state) => {
 
 export const editor = handleActions({
   SELECT_WORD: (state, action) => {
-    const [cursor, newFilter] = selectFromFilter(action.index, state);
-    console.log(cursor, newFilter)
+    const [cursor, newFilter] = selectFromFilter(action.payload.index, state);
+
     return {
       ...state,
       filter: newFilter,
