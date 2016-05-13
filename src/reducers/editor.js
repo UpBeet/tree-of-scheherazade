@@ -37,6 +37,6 @@ export const editor = handleActions({
 
   SUGGEST_WORDS: (state, action) => ({
     ...state,
-    suggestions: trieSort(state.sourceTrie.find(action.payload.prefix)) || [],
+    suggestions: trieSort(state.sourceTrie.find(action.payload.prefix) || []),
   }),
 }, initialState);
