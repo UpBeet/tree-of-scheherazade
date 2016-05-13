@@ -5,8 +5,8 @@ function getSuggestionValue(suggestion) {
   return suggestion.token;
 }
 
-function shouldRenderSuggestions(value) {
-  return value.length > 0;
+function shouldRenderSuggestions() {
+  return true;
 }
 
 function renderSuggestion(suggestion) {
