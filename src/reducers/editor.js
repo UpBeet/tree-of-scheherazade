@@ -1,18 +1,18 @@
-import { repeat, take, splitAt, sortBy, prop } from 'ramda';
+import { repeat, take, splitAt, sortBy, prop, filter } from 'ramda';
 import { handleActions } from 'redux-actions';
 
 import { buildTrie, tokenizer } from '../parser/parser';
 import dubliners from '../texts/dubliners';
 
 const source = take(2000, tokenizer(dubliners));
-const filter = repeat(true, source.length);
+const srcFilter = repeat(true, source.length);
 const sourceTrie = buildTrie(source);
 const trieSort = sortBy(prop('i'));
 
 const initialState = {
   source,
-  filter,
   sourceTrie,
+  filter: srcFilter,
   suggestions: [],
   cursor: 0,
 };
@@ -38,6 +38,8 @@ export const editor = handleActions({
 
   SUGGEST_WORDS: (state, action) => ({
     ...state,
-    suggestions: trieSort(state.sourceTrie.find(action.payload.prefix) || []),
+    suggestions: filter((el) => el.i >= state.cursor,
+                        trieSort(state.sourceTrie.find(action.payload.prefix))
+                        || []),
   }),
 }, initialState);
