@@ -16,7 +16,7 @@ const initialState = {
   cursor: 0,
 };
 
-const selectFromSource = (index, state) => {
+const selectFromFilter = (index, state) => {
   const [head, tail] = splitAt(index - 1, state.filter);
   const [unchanged, alter] = splitAt(state.cursor, head);
   const deselected = map(() => false, alter);
@@ -25,7 +25,7 @@ const selectFromSource = (index, state) => {
 
 export const editor = handleActions({
   SELECT_WORD: (state, action) => ({
-    source: selectFromSource(action.index, state),
+    filter: selectFromFilter(action.index, state),
     ...state,
   }),
 
