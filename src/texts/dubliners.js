@@ -1,5 +1,4 @@
-export default `
-THE SISTERS
+export default `THE SISTERS
 
 THERE was no hope for him this time: it was the third stroke. Night
 after night I had passed the house (it was vacation time) and studied

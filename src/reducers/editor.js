@@ -2,9 +2,11 @@ import { repeat, take, splitAt, sortBy, prop, filter } from 'ramda';
 import { handleActions } from 'redux-actions';
 
 import { buildTrie, tokenizer } from '../parser/parser';
-import dubliners from '../texts/dubliners';
+import heartOfDarkness from '../texts/heart-of-darkness';
+// import dubliners from '../texts/dubliners';
 
-const source = take(2000, tokenizer(dubliners));
+const source = take(2000, tokenizer(heartOfDarkness));
+// const source = take(2000, tokenizer(dubliners));
 const srcFilter = repeat(true, source.length);
 const sourceTrie = buildTrie(source);
 const trieSort = sortBy(prop('i'));
@@ -39,7 +41,7 @@ export const editor = handleActions({
   SUGGEST_WORDS: (state, action) => ({
     ...state,
     suggestions: filter((el) => el.i >= state.cursor,
-                        trieSort(state.sourceTrie.find(action.payload.prefix))
-                        || []),
+                       trieSort(state.sourceTrie.find(action.payload.prefix)
+                       || [])),
   }),
 }, initialState);

@@ -1,5 +1,4 @@
-export default `
-I
+export default `I
 
 
 The Nellie, a cruising yawl, swung to her anchor without a flutter of
