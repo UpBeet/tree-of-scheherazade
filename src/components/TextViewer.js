@@ -6,13 +6,13 @@ import R from 'ramda';
 import { Word } from '../components';
 
 // Dummy data
-const TextViewer = ({ source, filter, highlighted }) =>
+const TextViewer = ({ source, filter, suggestions }) =>
   (<div className='words'>
     {
       R.zip(source, filter)
       .map((item, i) =>
         <Word
-          highlight={R.contains(i, highlighted)}
+          highlight={R.contains(i, suggestions)}
           content={item[0]}
           selected={item[1]}
           key={i}/>)
@@ -22,7 +22,7 @@ const TextViewer = ({ source, filter, highlighted }) =>
 TextViewer.propTypes = {
   source: PropTypes.arrayOf(PropTypes.string).isRequired,
   filter: PropTypes.arrayOf(PropTypes.bool).isRequired,
-  highlighted: PropTypes.arrayOf(PropTypes.number).isRequired,
+  suggestions: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
 
 export default TextViewer;

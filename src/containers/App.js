@@ -12,20 +12,23 @@ const App = React.createClass({
 
   render() {
     const { editor, actions } = this.props;
+    console.log('In App render editor: ', editor);
 
     return (
       <div
-        className='container'
+        className="container"
       >
         <h1>Tree of Sheherazade</h1>
         <Editor
           trie={editor.sourceTrie}
           cursor={editor.cursor}
+          suggestions={editor.suggestions}
+          suggestWords={actions.suggestWords}
         />
         <TextViewer
           source={editor.source}
           filter={editor.filter}
-          highlighted={editor.highlighted}
+          suggestions={editor.suggestions}
           cursor={editor.cursor}
         />
       </div>);

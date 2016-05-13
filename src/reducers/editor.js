@@ -12,7 +12,7 @@ const initialState = {
   source,
   filter,
   sourceTrie,
-  highlighted: [],
+  suggestions: [],
   cursor: 0,
 };
 
@@ -25,11 +25,15 @@ const selectFromFilter = (index, state) => {
 
 export const editor = handleActions({
   SELECT_WORD: (state, action) => ({
-    filter: selectFromFilter(action.index, state),
+    filter: selectFromFilter(action.payload.index, state),
     ...state,
   }),
 
-  HIGHLIGHT_WORDS: (state, action) => ({
-    ...state,
-  }),
+  SUGGEST_WORDS: (state, action) => {
+    console.log('suggestions: ', state.sourceTrie.find(action.payload.prefix) || [])
+    return {
+      suggestions: state.sourceTrie.find(action.payload.prefix) || [],
+      ...state,
+    }
+  },
 }, initialState);
