@@ -1,2 +1,2 @@
 
-export const selectWord = index => ({ type: 'SELECT_WORD', index });
+export const selectWord = index => ({ type: 'SELECT_WORD', payload: { index } });

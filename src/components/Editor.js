@@ -1,5 +1,5 @@
 import React from 'react';
-import TextArea from './TextArea';
+import TextArea from '../components/TextArea';
 
 export default () => (
   <div

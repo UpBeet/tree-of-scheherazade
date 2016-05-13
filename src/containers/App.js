@@ -4,8 +4,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 // Internal
-import Editor from './Editor';
-import TextViewer from './TextViewer';
+import Editor from '../components/Editor';
+import TextViewer from '../components/TextViewer';
 import * as Actions from '../actions';
 
 const App = React.createClass({
