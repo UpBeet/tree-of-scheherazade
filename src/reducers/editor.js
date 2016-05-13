@@ -1,4 +1,4 @@
-import { repeat, take, splitAt, map } from 'ramda';
+import { repeat, take, splitAt } from 'ramda';
 import { handleActions } from 'redux-actions';
 
 import { buildTrie, tokenizer } from '../parser/parser';
@@ -19,15 +19,21 @@ const initialState = {
 const selectFromFilter = (index, state) => {
   const [head, tail] = splitAt(index - 1, state.filter);
   const [unchanged, alter] = splitAt(state.cursor, head);
-  const deselected = map(() => false, alter);
-  return unchanged.concat(deselected).concat(tail);
+
+  const alteredHead = unchanged.concat(repeat(false, alter.length));
+  return [alteredHead.length + 1, alteredHead.concat(tail)];
 };
 
 export const editor = handleActions({
-  SELECT_WORD: (state, action) => ({
-    filter: selectFromFilter(action.payload.index, state),
-    ...state,
-  }),
+  SELECT_WORD: (state, action) => {
+    const [cursor, newFilter] = selectFromFilter(action.index, state);
+
+    return {
+      filter: newFilter,
+      cursor,
+      ...state,
+    };
+  },
 
   SUGGEST_WORDS: (state, action) => {
     console.log('suggestions: ', state.sourceTrie.find(action.payload.prefix) || [])
