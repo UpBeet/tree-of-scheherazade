@@ -28,9 +28,9 @@ const selectFromFilter = (index, state) => {
 export const editor = handleActions({
   SELECT_WORD: (state, action) => {
     const [cursor, newFilter] = selectFromFilter(action.payload.index, state);
-
     return {
       ...state,
+      suggestions: [],
       filter: newFilter,
       cursor,
     };

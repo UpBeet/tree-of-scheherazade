@@ -37,7 +37,6 @@ class TextArea extends Component {
   }
 
   onSuggestionSelected(event, { suggestion }) {
-    console.log('chrome being butt', suggestion);
     this.props.selectWord(suggestion.i);
     this.setState({ value: '' });
   }
