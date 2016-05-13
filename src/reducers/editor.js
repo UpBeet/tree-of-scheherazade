@@ -27,19 +27,15 @@ const selectFromFilter = (index, state) => {
 export const editor = handleActions({
   SELECT_WORD: (state, action) => {
     const [cursor, newFilter] = selectFromFilter(action.index, state);
-
     return {
+      ...state,
       filter: newFilter,
       cursor,
-      ...state,
     };
   },
 
-  SUGGEST_WORDS: (state, action) => {
-    console.log('suggestions: ', state.sourceTrie.find(action.payload.prefix) || [])
-    return {
-      suggestions: state.sourceTrie.find(action.payload.prefix) || [],
-      ...state,
-    }
-  },
+  SUGGEST_WORDS: (state, action) => ({
+    ...state,
+    suggestions: state.sourceTrie.find(action.payload.prefix) || [],
+  }),
 }, initialState);

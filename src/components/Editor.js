@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 import Autosuggest from 'react-autosuggest';
 
 function getSuggestionValue(suggestion) {
-  return suggestion;
+  return suggestion.token;
+}
+
+function shouldRenderSuggestions(value) {
+  return value.length > 0;
 }
 
 function renderSuggestion(suggestion) {
   return (
-    <span>{suggestion}</span>
+    <span>{suggestion.token}</span>
   );
 }
 
@@ -22,23 +26,20 @@ class TextArea extends Component {
       this.onSuggestionsUpdateRequested.bind(this);
   }
 
-  onChange(event, { value }) {
-    console.log(event, value)
-    this.setState({ value });
+  onChange(event, { newValue }) {
+    this.setState({ value: newValue });
   }
 
   onSuggestionsUpdateRequested({ value }) {
-    console.log(value, this.props.trie.find(value))
     this.props.suggestWords(value);
   }
 
   render() {
     const { value } = this.state;
     const { suggestions } = this.props;
-    console.log('in render', this.props)
     const inputProps = {
       placeholder: 'Type a word',
-      value: this.state.value,
+      value,
       onChange: this.onChange,
     };
 
@@ -51,6 +52,7 @@ class TextArea extends Component {
           onSuggestionsUpdateRequested={this.onSuggestionsUpdateRequested}
           getSuggestionValue={getSuggestionValue}
           renderSuggestion={renderSuggestion}
+          shouldRenderSuggestions={shouldRenderSuggestions}
           inputProps={inputProps}
         />
       </div>

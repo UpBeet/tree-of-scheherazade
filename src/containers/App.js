@@ -12,7 +12,6 @@ const App = React.createClass({
 
   render() {
     const { editor, actions } = this.props;
-    console.log('In App render editor: ', editor);
 
     return (
       <div
