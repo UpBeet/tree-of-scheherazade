@@ -17,7 +17,7 @@ export const tokenizer = (rawText) =>
     /([A-Za-zА-Яа-я0-9_\$%#@]+|[,\?\.'";&\(\)!\-\+=\n\r])/g);
 
 export const buildTrie = (tokenizedText) => {
-  const auto = new Trie();
+  const auto = new Trie({ maxCache: 30 });
   forEachIndex((token, i) =>
                auto.add(toLower(token), { i, token }), tokenizedText);
   return auto;
