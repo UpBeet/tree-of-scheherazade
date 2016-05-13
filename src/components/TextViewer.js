@@ -7,12 +7,12 @@ import { Word } from '../components';
 
 // Dummy data
 const TextViewer = ({ source, filter, suggestions }) =>
-  (<div className='words'>
+  (<div className="words">
     {
       R.zip(source, filter)
       .map((item, i) =>
         <Word
-          highlight={R.contains(i, suggestions)}
+          highlight={(R.filter(R.propEq('i', i), suggestions).length > 0)}
           content={item[0]}
           selected={item[1]}
           key={i}/>)
@@ -22,7 +22,7 @@ const TextViewer = ({ source, filter, suggestions }) =>
 TextViewer.propTypes = {
   source: PropTypes.arrayOf(PropTypes.string).isRequired,
   filter: PropTypes.arrayOf(PropTypes.bool).isRequired,
-  suggestions: PropTypes.arrayOf(PropTypes.number).isRequired,
+  suggestions: PropTypes.array.isRequired,
 };
 
 export default TextViewer;
