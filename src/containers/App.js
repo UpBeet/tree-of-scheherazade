@@ -2,6 +2,7 @@
 import React, { PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { ActionCreators as UndoRedoActions } from 'redux-undo';
 
 // Internal
 import Editor from '../components/Editor';
@@ -11,7 +12,7 @@ import * as Actions from '../actions';
 const App = React.createClass({
 
   render() {
-    const { editor, actions } = this.props;
+    const { editor: { present }, actions, undoRedo } = this.props;
 
     return (
       <div
@@ -19,17 +20,17 @@ const App = React.createClass({
       >
         <h1>Tree of Scheherazade</h1>
         <Editor
-          trie={editor.sourceTrie}
-          cursor={editor.cursor}
-          suggestions={editor.suggestions}
+          trie={present.sourceTrie}
+          cursor={present.cursor}
+          suggestions={present.suggestions}
           suggestWords={actions.suggestWords}
           selectWord={actions.selectWord}
         />
         <TextViewer
-          source={editor.source}
-          filter={editor.filter}
-          suggestions={editor.suggestions}
-          cursor={editor.cursor}
+          source={present.source}
+          filter={present.filter}
+          suggestions={present.suggestions}
+          cursor={present.cursor}
         />
       </div>);
   },
@@ -46,6 +47,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(Actions, dispatch),
+  undoRedo: bindActionCreators(UndoRedoActions, dispatch)
 });
 
 export default connect(
